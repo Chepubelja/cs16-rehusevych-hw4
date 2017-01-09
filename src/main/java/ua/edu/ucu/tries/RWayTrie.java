@@ -29,6 +29,7 @@ public class RWayTrie implements Trie {
         put(tuple.getTerm(), tuple.getTerm().length());
     }
 
+
     @Override
     public boolean contains(String word) {
         if ((get(word) == null) || (get(word) != word.length())){

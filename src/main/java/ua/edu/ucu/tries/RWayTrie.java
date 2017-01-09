@@ -32,18 +32,12 @@ public class RWayTrie implements Trie {
 
     @Override
     public boolean contains(String word) {
-        if ((get(word) == null) || (get(word) != word.length())) {
-            return false;
-        }
-        return true;
+        return !((get(word) == null) || (get(word) != word.length()));
     }
 
     @Override
     public boolean delete(String word) {
-        if (get(word) == null || put(word, 0) != word.length()) {
-            return false;
-        }
-        return true;
+        return !(get(word) == null || put(word, 0) != word.length());
     }
 
     @Override

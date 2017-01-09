@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class RWayTrie implements Trie {
     private Node root;
 
-    public RWayTrie(){
+    public RWayTrie() {
         root = new Node();
     }
     private Integer get(String key)
@@ -32,7 +32,7 @@ public class RWayTrie implements Trie {
 
     @Override
     public boolean contains(String word) {
-        if ((get(word) == null) || (get(word) != word.length())){
+        if ((get(word) == null) || (get(word) != word.length())) {
             return false;
         }
         return true;
@@ -40,7 +40,7 @@ public class RWayTrie implements Trie {
 
     @Override
     public boolean delete(String word) {
-        if (get(word) == null || put(word, 0) != word.length()){
+        if (get(word) == null || put(word, 0) != word.length()) {
             return false;
         }
         return true;
@@ -49,14 +49,14 @@ public class RWayTrie implements Trie {
     @Override
     public Iterable<String> words() {
         ArrayList<String> wordsList = new ArrayList<>();
-        root.DFS(root, "", wordsList);
+        root.dfs(root, "", wordsList);
         return wordsList;
     }
 
     @Override
     public Iterable<String> wordsWithPrefix(String s) {
         ArrayList<String> wordsList = new ArrayList<>();
-        root.DFS(root.get(root, s, 0), s, wordsList);
+        root.dfs(root.get(root, s, 0), s, wordsList);
         return wordsList;
     }
 

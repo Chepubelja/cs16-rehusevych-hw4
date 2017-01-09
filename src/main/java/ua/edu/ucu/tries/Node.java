@@ -13,10 +13,10 @@ class Node {
     }
     Node get(Node x, String key, Integer depth)
     {
-        if (x == null){
+        if (x == null) {
             return null;
         }
-        if (depth == key.length()){
+        if (depth == key.length()) {
             return x;
         }
         char c = key.charAt(depth);
@@ -25,37 +25,37 @@ class Node {
 
     Node put(Node x, String key, Integer val, Integer depth)
     {
-        if (x == null){
+        if (x == null) {
             x = new Node();
         }
-        if (depth == key.length()){
+        if (depth == key.length()) {
             x.val = val;
             return x;
         }
         char c = key.charAt(depth);
-        if (x.next[c- a] == null){
+        if (x.next[c- a] == null) {
             x.next[c- a] = new Node();
         }
         x.next[c- a] = put(x.next[c- a], key, val, depth + 1);
         return x;
     }
 
-    ArrayList<String> DFS(Node x, String tmpWord, ArrayList<String> resList) {
+    ArrayList<String> dfs(Node x, String tmpWord, ArrayList<String> resList) {
         if (x != null) {
-            if (x.getVal() != null && x.getVal() > 0){
+            if (x.getVal() != null && x.getVal() > 0) {
                 resList.add(tmpWord);
             }
-            for (int i = 0; i < R; i++){
-                DFS(x.next[i], tmpWord + (char) (i+ a), resList);
+            for (int i = 0; i < R; i++) {
+                dfs(x.next[i], tmpWord + (char) (i+ a), resList);
             }
         }
         return resList;
     }
 
     int size(Node x) {
-        ArrayList<String> new_size = new ArrayList<>();
-        DFS(x, "", new_size);
-        return new_size.size();
+        ArrayList<String> newSize = new ArrayList<>();
+        dfs(x, "", newSize);
+        return newSize.size();
     }
 }
 

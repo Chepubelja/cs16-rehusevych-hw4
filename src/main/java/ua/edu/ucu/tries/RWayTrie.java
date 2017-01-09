@@ -56,6 +56,6 @@ public class RWayTrie implements Trie {
 
     @Override
     public int size() {
-        return root.size(root);
+        return root.size(root, "");
     }
 }

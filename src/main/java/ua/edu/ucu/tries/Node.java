@@ -52,9 +52,16 @@ class Node {
         return resList;
     }
 
-    int size(Node x) {
+    int size(Node x, String tmpWord) {
         ArrayList<String> newSize = new ArrayList<>();
-        dfs(x, "", newSize);
+        if (x != null) {
+            if (x.getVal() != null && x.getVal() > 0) {
+                newSize.add(tmpWord);
+            }
+            for (int i = 0; i < R; i++) {
+                dfs(x.next[i], tmpWord + (char) (i+ a), newSize);
+            }
+        }
         return newSize.size();
     }
 }

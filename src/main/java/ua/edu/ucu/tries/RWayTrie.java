@@ -30,26 +30,25 @@ public class RWayTrie implements Trie {
     }
 
 
-    @Override
     public boolean contains(String word) {
-        return (get(word) != null) && (get(word) == word.length());
+        return get(word)!=null && get(word) == word.length();
     }
 
     @Override
     public boolean delete(String word) {
-        return get(word) != null && put(word, 0) == word.length();
+        return get(word)!= null && put(word, 0) == word.length();
     }
 
     @Override
     public Iterable<String> words() {
-        ArrayList<String> wordsList = new ArrayList<>();
+        ArrayList<String> wordsList = new ArrayList<String>();
         root.dfs(root, "", wordsList);
         return wordsList;
     }
 
     @Override
     public Iterable<String> wordsWithPrefix(String s) {
-        ArrayList<String> wordsList = new ArrayList<>();
+        ArrayList<String> wordsList = new ArrayList<String>();
         root.dfs(root.get(root, s, 0), s, wordsList);
         return wordsList;
     }
